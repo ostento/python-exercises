@@ -4,6 +4,8 @@ def compare(x, y):
 	else: return 0
 
 def hypotenuse(a,b):
+	temp = a ** 2 + b ** 2
+	print temp
 	return 0.0
 
 print hypotenuse(1,2)
