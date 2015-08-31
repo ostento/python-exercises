@@ -9,9 +9,6 @@ def hypotenuse(a,b):
 	return sqrt(a ** 2 + b ** 2)
 
 def is_between(x,y,z):
-	if x <= y and y <= z:
-		return True
-	else:
-		return False
+	return x <= y and y <= z
 
-print is_between(1,2,1)
+print is_between(1,2,5)
