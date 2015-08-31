@@ -6,8 +6,7 @@ def compare(x, y):
 	else: return 0
 
 def hypotenuse(a,b):
-	temp = sqrt(a ** 2 + b ** 2)
-	print temp
-	return 0.0
+	return sqrt(a ** 2 + b ** 2)
+	
 
 print hypotenuse(1,2)
