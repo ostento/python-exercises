@@ -7,6 +7,11 @@ def compare(x, y):
 
 def hypotenuse(a,b):
 	return sqrt(a ** 2 + b ** 2)
-	
+
+def is_between(x,y,z):
+	if 1:
+		return True
+	else:
+		return False
 
 print hypotenuse(1,2)
