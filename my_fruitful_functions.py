@@ -40,7 +40,5 @@ def is_power(a, b):
 def gcd(a, b):
 	if b == 0: return a
 	else: 
-		print 'calling gcd(', b,',', a,'%',b,')'
 		return gcd(b, a % b)
 
-print gcd(252, 105)

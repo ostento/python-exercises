@@ -54,8 +54,6 @@ bob.delay = .001
 #colors=['red','orange','yellow', 'green', 'blue', 'violet']
 # for i in range(200):
 # 	bob.pen_color = colors[i%6]
-# 	print i%10
-# 	print bob.pen_color
 # 	snowflake(bob, i*10, 4)
 # 	lt(bob, i*45)
 
