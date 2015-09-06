@@ -209,32 +209,33 @@ def car_talk(word):
 			return True
 	return False
 
-def is_palindromic(word):
-	if word == word[::-1]: return True
-	else: return False
+def has_palindrome(word, start, len):
+	'''rewrite of is_palindromic to allow checks on different sections of a string.
+	input: 
+			word: something that can be made into a string
+			start: the index of the first character to be tested
+			len: the length of the string to be tested.
+	output: Boolean
+	'''
+	s = str(word)[start:start+len]
+	return s == s[::-1]
 
-def cartalk2_check(i): # gives false output.
-	if is_palindromic(str(i)[-4:]):
-		print str(i)[-4:]
-		i + 1
-	else: return False
-	if is_palindromic(str(i)[1:]):
-		i + 1
-	else: return False
-	if is_palindromic(str(i)[1:-1]):
-		print str(i)[1:-1]
-		i + 1
-	else: return False
-	if is_palindromic(str(i)):
-		print str(i)
-		return i - 3
+
+def cartalk2_check(i):
+	'''checks for palindromes satisfying cartalk2 in integer i
+	''' 
+	return (has_palindrome(i, 2, 4) and
+			has_palindrome(i+1, 1, 5) and
+			has_palindrome(i+2, 1, 4) and 
+			has_palindrome(i+3, 0, 6))
+
 
 def cartalk2_display():
 	result = []
 	for i in range(100000, 999999):
-		a = cartalk2_check(i)
-		if a:
-			result.append(a)
+		if cartalk2_check(i):
+			result.append(i)
 	return result
 
 print cartalk2_display()
+
