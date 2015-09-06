@@ -237,5 +237,11 @@ def cartalk2_display():
 			result.append(i)
 	return result
 
-print cartalk2_display()
+def cartalk3_check(m, n):
+	count = 0
+	while m < 120 and n < 120:
+		m, n = m + 1, n + 1
+		print m, n, count
+
+
 
