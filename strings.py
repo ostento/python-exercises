@@ -109,6 +109,4 @@ def rotate_word2(s, n):
 		result.append(rotate_letter(c, n))
 	return ''.join(result)
 
-a = open('rot13.txt', 'r')
-
-print rotate_word2(a.read(), 13)
+print is_palindrome('abaab')

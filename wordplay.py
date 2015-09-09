@@ -239,9 +239,25 @@ def cartalk2_display():
 
 def cartalk3_check(m, n):
 	count = 0
-	while m < 120 and n < 120:
-		m, n = m + 1, n + 1
-		print m, n, count
+	while m < 100 and n < 100:
+		if str(m).zfill(2) == str(n).zfill(2)[::-1]:
+			count += 1
+			if count == 8: return True
+		m, n = m + 1, n + 1			
+	return False
+
+def cartalk3_display():
+	'''Unfinished. It would be good to come back to this as an exercise later.'''
+	result = []
+	for i in range(15,100):
+		for j in range(100):
+			if cartalk3_check(i,j) and i - j > 15:
+				result.append([i,j])
+	return result
+
+print cartalk3_display()
+
+
 
 
 
