@@ -143,14 +143,7 @@ def word_list_aug(f):
 		return 1
 	elif len(a) <= 1 and s not in a:
 		return None
-	# else: 
-	# 	mid = (high - low)/2
-	# 	print mid
-	# 	if temp == s: return mid
-	# 	if temp[mid] > s: 
-	# 		return bisect(temp, s, mid, high)
-	# 	if temp[mid] < s: return bisect(temp, s, low, mid)
-	# return 'ding'
+
 
 def bisect(a, s, m, n):
 	'''runs a binary search on list a for element s. Returns None if the result isn't found, and the index of the element if it is. This was worked up from the wikipedia page on binary search.
@@ -171,7 +164,27 @@ def bisect(a, s, m, n):
 		elif a[mid] < s: return bisect(a, s, mid+1, n)
 		else: return mid
 
+def reverse_pair(t):
+	'''Scans a sorted list and returns elements which are orthographically opposite.
+		Input:
+					t: a sorted list
+		Output:		res: a list with elements formatted as [[a, index(a)],[inverse, index(inverse)]]
+	'''
+	res = []
+	for i in range(len(t)-1):
+		a = list(t[i])
+		str_inverse = ''.join(a[::-1])
+		inverse_index = bisect(t, str_inverse, 0, len(t)-1)
+		if inverse_index:
+			res.append([[t[i],i], [t[inverse_index], inverse_index]])
+	return res
 
+def interlock(m, n):
+	''' Returns a string with the characters of m and n alternating in their original order. 'cots' 'dogs' would return 'cdootgss', for instance. 
+		Precondition: m must be the longer string, if one string is longer.
+	'''
+	'''Couldn't figure this out. Checked the (wonderful) solution; leaving it for an exercise later.
+	'''
 
 if __name__ == '__main__':
 	a = [[1,2,3],[2, 4, 4]]
@@ -189,7 +202,11 @@ if __name__ == '__main__':
 	print "Exercise 10.9: remove_duplicates(%s) returns %s." % (a[1],remove_duplicates(a[1]))
 	m = word_list_app('words.txt')
 	print "Exercise 10.10: word_list_app(f) returns in %f seconds; word_list_aug(f) returns in about 240s (it's too slow to execute.)" %(m[0])
-	a = word_list_app('words.txt')
-	l = len(a[1]) -1
+	l = len(m[1]) -1
 	s = b[1][2]
-	print "Exercise 10.11: the word '%s' occurs %ith in the word-list." % (s, bisect(a[1], s, 0, len(a[1])-1))
+	print "Exercise 10.11: the word '%s' occurs %ith in the word-list." % (s, bisect(m[1], s, 0, len(m[1])-1))
+	reverses = reverse_pair(m[1])
+	reverses_len = len(reverses)
+	rand = randint(0, reverses_len)
+	print "Exercise 10.12: there are %i reverse pairs in the wordlist. One is %s." % (reverses_len, reverses[rand]) 
+	print "Exercise 10.13: Left as an exercise."
